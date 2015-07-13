@@ -1,0 +1,15 @@
+$default_dark: rgb(43, 56, 78);
+$default_light: rgb(138, 158, 196);
+
+//$default_dark: rgb(26, 78, 31);
+//$default_light: rgb(47, 134, 52);
+
+$primary-color: $default_dark;//rgb(43, 56, 78);
+$secondary-color: #e7e7e7;
+
+$main_grad_dark: $default_dark;
+$main_grad_light: $default_light;
+
+$header-font-color: darken($default_light, 10%);
+$anchor-font-color: darken($default_light, 15%);
+$anchor-font-color-hover: lighten($anchor-font-color, 20%);

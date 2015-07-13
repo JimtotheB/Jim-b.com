@@ -1,0 +1,57 @@
+script(src='https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js')
+script(src='https://cdnjs.cloudflare.com/ajax/libs/foundation/5.5.2/js/foundation.min.js')
+script(src='https://cdnjs.cloudflare.com/ajax/libs/lodash.js/3.10.0/lodash.min.js')
+
+script.
+
+  $(function() {
+    var teaserText = $('#teaserText');
+    var teasers = _.shuffle([
+      'Understands bind, call and apply.',
+      'Thats a Polish name you know.',
+      'Has an ESXi server at home.',
+      'Thinks golang is ok.',
+      'Liked AngularJs 1.x.',
+      'Gets exited for build tools.',
+      'Prefers Webstorm.',
+      'Has never water-skied.',
+      'Prefers recursion.'
+    ]);
+    var timer;
+    var tease = (function t() {
+      clearTimeout(timer);
+      var index = teasers.pop()
+      teasers.unshift(index)
+      teaserText.text(" " + index)
+      timer = setTimeout(t, 30000)
+      return t
+    })()
+
+    teaserText.click(tease)
+    $("img").error(function() {
+      $(this).hide();
+    });
+
+    window.twttr = (function(d, s, id) {
+      var js, fjs = d.getElementsByTagName(s)[0],
+          t = window.twttr || {};
+      if(d.getElementById(id)) return t;
+      js = d.createElement(s);
+      js.id = id;
+      js.src = "https://platform.twitter.com/widgets.js";
+      fjs.parentNode.insertBefore(js, fjs);
+      t._e = [];
+      t.ready = function(f) {
+        t._e.push(f);
+      };
+      return t;
+    }(document, "script", "twitter-wjs"));
+
+
+    twttr.ready(function() {
+      twttr.events.bind('loaded', function() {
+        $(document).foundation();
+      })
+    })
+  });
+

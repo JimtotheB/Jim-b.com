@@ -1,0 +1,4 @@
+each tweet  in twitter
+  h4= tweet.user.name
+    small &nbsp;@#{tweet.user.screen_name}
+  p!= tweet.linkedText

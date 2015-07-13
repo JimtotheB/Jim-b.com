@@ -1,0 +1,63 @@
+extends ../Base
+
+block header
+
+block content
+  .row.full-width(data-equalizer)
+    .small-12.large-4.columns.grey(data-equalizer-watch)
+      .row
+        .small-12.medium-6.large-12.columns
+          span(data-magellan-destination="top")
+          a(name='top')
+          img.headshot(src="/images/me_5.jpg", width='100%')
+        .small-12.medium-6.large-12.columns
+          .transparentPanel
+            include links
+      .show-for-large-up
+        .transparentPanel
+          a.twitter-timeline(
+            href="https://twitter.com/paperElectron",
+            data-widget-id="616340330774970368",
+            data-chrome="transparent noborders",
+          )
+            i.fa.fa-gear.fa-2x.fa-spin
+            |   Tweets by @paperElectron
+    .small-12.large-8.columns(data-equalizer-watch)
+      .row
+        .small-12.columns
+          h1 Jim Bulkowski
+           small#teaserText.clickCursor
+          h4 Atlanta, GA
+      .row
+        include magellan
+        .small-12.columns
+          hr
+          h2(data-magellan-destination="about") About Me.
+          a(name='about')
+          .panel
+            include aboutme
+          hr
+
+          h2(data-magellan-destination="projects") Current Projects.
+          a(name='projects')
+
+          include projects
+          hr
+
+          h2(data-magellan-destination="interests") Other Interests.
+          a(name='interests')
+          .panel
+            include interests
+
+      .row.show-for-medium-down
+        .small-12.columns
+
+          a.twitter-timeline(
+            data-magellan-destination="twitter",
+            href="https://twitter.com/paperElectron",
+            data-widget-id="616340330774970368",
+            data-chrome="transparent noborders",
+          ) Tweets by @paperElectron
+          a(name='twitter')
+block footer
+  include footer

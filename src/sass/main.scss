@@ -1,0 +1,102 @@
+@import "foundation/components/global";
+@import "vars";
+@import "foundation/settings";
+@import "normalize";
+@import "foundation";
+@import "fontAwesome/font-awesome";
+
+.row.full-width {
+  width: 100%;
+  max-width: 100%;
+}
+
+.grey {
+  background-color: whitesmoke;
+  background: linear-gradient(135deg, $main_grad_light 0%, $main_grad_dark 100%);
+  box-shadow: 1px -1px 5px black;
+}
+
+[data-magellan-expedition], [data-magellan-expedition-clone] {
+  padding-top: 10px;
+  padding-bottom: 10px;
+  margin-left: 5px;
+}
+
+#twitter-widget-0 {
+  width: 100% !important;
+  max-width: 100% !important;
+}
+
+.clickCursor {
+  cursor: pointer;
+}
+.transparentPanel {
+  @include panel(
+    $bg: rgba(255, 255, 255, 0.5),
+//    $padding: 10px,
+    $adjust: true
+  );
+  padding: 10px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+ul.centeredList {
+  margin: 0px;
+  text-align: center;
+}
+ul.centered-list li {
+  display: inline-block;
+}
+img.headshot {
+  border-radius: 50%;
+  margin-top: 4px;
+  margin-bottom: 4px;
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+  max-width: 250px;
+  padding: 2px;
+  display: block;
+  border: 2px dashed $default_light;
+}
+
+.rightText {
+  text-align: right;
+}
+
+.padOut {
+  padding: 5px;
+}
+.footer {
+  background-color: whitesmoke;
+
+  font-size: 1.2rem;
+  padding-top: 5rem;
+  padding-bottom: 5rem;
+  padding-left: 4rem;
+  padding-right: 4rem;
+}
+
+@media only screen {
+  img.headshot {
+    width: 60%;
+  }
+  .transparentPanel {
+    padding: 5px;
+  }
+
+}
+
+@media only screen and (min-width: 40.063em) {
+  [data-magellan-expedition] {
+    left: auto !important;
+  }
+  img.headshot {
+    width: 50%;
+  }
+  .transparentPanel {
+    margin-right: 10px;
+  }
+}
+

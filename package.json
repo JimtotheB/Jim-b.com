@@ -1,0 +1,39 @@
+{
+  "name": "jim-b.com",
+  "version": "0.0.0",
+  "description": "My personal website.",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "gulp"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/JimtotheB/JimB-web"
+  },
+  "preferGlobal": true,
+  "bin": {
+    "jimb-web": "cli/jimb-web.js"
+  },
+  "author": "Jim <monstertke@paperelectron.com> (http://paperelectron.com/)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/JimtotheB/JimB-web/issues"
+  },
+  "homepage": "https://github.com/JimtotheB/JimB-web#readme",
+  "dependencies": {
+    "lodash": "^3.10.0",
+    "pomegranate": "^0.2.7",
+    "twitter": "^1.2.5",
+    "twitter-text": "^1.12.0"
+  },
+  "devDependencies": {
+    "gulp": "^3.9.0",
+    "gulp-minify-css": "^1.2.0",
+    "gulp-plumber": "^1.0.1",
+    "gulp-rename": "^1.2.2",
+    "gulp-sass": "^2.0.3",
+    "gulp-watch": "^4.2.4"
+  }
+}
