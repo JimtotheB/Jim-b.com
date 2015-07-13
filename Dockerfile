@@ -28,7 +28,7 @@ RUN mkdir /etc/service/jimb-web
 ADD jimb-web.sh /etc/service/jimb-web/run
 
 EXPOSE 8080
-ENV DockerCacheVersion 2
+ENV DockerCacheVersion 3
 RUN npm install -g git+https://github.com/JimtotheB/Jim-b.com.git
 
 CMD ["/sbin/my_init"]
