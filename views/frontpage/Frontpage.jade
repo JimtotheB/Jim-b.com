@@ -26,8 +26,9 @@ block content
       .row
         .small-12.columns
           h1 Jim Bulkowski
-           small#teaserText.clickCursor
-           small#blinkyCursor |
+            br.show-for-small-down
+            small#teaserText.clickCursor
+            small#blinkyCursor |
           h4 Atlanta, GA
       .row
         include magellan
@@ -52,13 +53,13 @@ block content
 
       .row.show-for-medium-down
         .small-12.columns
-
+          h2(data-magellan-destination="twitter") Latest
+          a(name='twitter')
           a.twitter-timeline(
-            data-magellan-destination="twitter",
             href="https://twitter.com/paperElectron",
             data-widget-id="616340330774970368",
             data-chrome="transparent noborders",
           ) Tweets by @paperElectron
-          a(name='twitter')
+
 block footer
   include footer

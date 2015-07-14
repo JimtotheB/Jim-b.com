@@ -28,7 +28,7 @@
 }
 
 #blinkyCursor {
-
+  display: none;
 }
 
 .clickCursor {
@@ -83,6 +83,10 @@ img.headshot {
 }
 
 @media only screen {
+  .footer {
+    padding-left: 0rem;
+    padding-right: 0rem;
+  }
   img.headshot {
     width: 60%;
   }

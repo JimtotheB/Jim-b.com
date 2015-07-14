@@ -8449,6 +8449,9 @@ th.hide-for-touch {
   width: 100% !important;
   max-width: 100% !important; }
 
+#blinkyCursor {
+  display: none; }
+
 .clickCursor {
   cursor: pointer; }
 
@@ -8509,6 +8512,9 @@ img.headshot {
   padding-right: 4rem; }
 
 @media only screen {
+  .footer {
+    padding-left: 0rem;
+    padding-right: 0rem; }
   img.headshot {
     width: 60%; }
   .transparentPanel {

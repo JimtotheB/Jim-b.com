@@ -1,9 +1,9 @@
 var teaserText = $('#teaserText');
 var cursor = $('#blinkyCursor');
 
+var timer, typeTimer, unTypeTimer;
 
-
-var teasers = _.shuffle([
+var teasers = [
   'Understands bind, call and apply.',
   'Has an ESXi server at home.',
   'Thinks golang is ok.',
@@ -12,40 +12,45 @@ var teasers = _.shuffle([
   'Uses Webstorm.',
   'Has never water-skied.',
   'Prefers recursion.'
-]);
+  ].sort(function(){return 0.5 - Math.random()});
 
-var timer, typeTimer, unTypeTimer;
+
+var getRandom = function(max, min){
+  if(min == null){
+    min = 0;
+  }
+  return Math.floor( Math.random() * (max - min) ) + min
+
+}
 
 var untype = function(done){
   var words = teaserText.html().split(' ');
   var sliceLength = words.length;
-  var delay = [175, 200, 250];
+
   var deleteBlock = function(){
     if(sliceLength > 0){
-      teaserText.text(" " + words.slice(0, sliceLength--).join(' '));
-      unTypeTimer = setTimeout(deleteBlock, delay[Math.floor(Math.random() * 3)])
+      teaserText.text(words.slice(0, sliceLength--).join(' '));
+      unTypeTimer = setTimeout(deleteBlock, getRandom(250, 175));
     }
     else {
-      done()
+      done();
     }
   }
-  deleteBlock()
+  deleteBlock();
 }
 
 var type = function(words){
   var index = 0;
   var strLen = words.length;
-  var str;
-  var delay = [60, 70, 80];
+  var str = " ";
 
   var putChar = function(){
-    teaserText.text(" " + str);
-    str = words.substr(0, ++index)
+    teaserText.text(" " + words.substr(0, ++index));
     if(index <= strLen){
-      typeTimer = setTimeout(putChar , delay[Math.floor(Math.random() * 3)]);
+      typeTimer = setTimeout(putChar , getRandom(80, 60));
     }
   };
-  var str = words.substr(0, index)
+
   untype(putChar);
 }
 
@@ -54,13 +59,17 @@ var type = function(words){
 $(function() {
 
   ~function animateCursor(){
-    cursor.animate({
-      opacity: 0
-    }, 'slow', 'swing').animate({
-      opacity: 1
-    }, 'slow', 'swing');
-    setTimeout(animateCursor, 750)
-  }()
+    cursor
+      .show()
+      .animate({
+        opacity: 0
+      }, 'slow', 'swing')
+      .animate({
+        opacity: 1
+      }, 'slow', 'swing');
+
+    setTimeout(animateCursor, 750);
+  }();
 
   var tease = function t() {
     [timer, typeTimer, unTypeTimer].forEach(function(theTimer){
@@ -100,5 +109,5 @@ window.twttr = (function(d, s, id) {
 twttr.ready(function() {
   twttr.events.bind('loaded', function() {
     $(document).foundation();
-  })
-})
+  });
+});
